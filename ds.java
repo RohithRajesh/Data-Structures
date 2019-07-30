@@ -1,13 +1,16 @@
 public class ds{
 	public static void main(String[] args){
-		LinkedList ll= new LinkedList();
-		ll.append(1);
-		ll.append(2);
-		ll.append(3);
-		ll.append(4);
-		ll.append(5);
-		ll.delete(3);
-		ll.display();
+		Stack s=new Stack();
+		s.push(1);
+		s.push(2);
+		s.push(3);
+		s.push(4);
+		s.push(5);
+		s.pop();
+		System.out.println(s.peek());
+		s.display();
+
+
 
 	
 	}
@@ -96,20 +99,32 @@ public class ds{
 		}	
 
 	}
-	public static class Stack(){
+	public static class Stack{
 		int[] s=new int[10000000];
 		int front;
 		public Stack(){
-			front=0;
+			front=-1;
 		} 
-		public void push(int x){
-			
-
+		public int size(){
+			return front+1;
 		}
-
-
-
-
+		public void push(int x){
+			front++;
+			s[front]=x;
+		}
+		public int pop(){
+			int b=s[front];
+			front--;
+			return b;
+		}
+		public int peek(){
+			return s[front];
+		}
+		public void display(){
+			for(int i=front;i>=0;i--){
+				System.out.println(s[i]);
+			}
+		}
 
 	}
 		
